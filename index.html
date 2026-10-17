@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Meubles à vendre – maison de Jandrain</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{ --bg:#E6E4DE; --card:#FAF9F6; --ink:#25272A; --muted:#6A6D72; --oak:#8A5A2B; --line:#D2CFC7;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px); }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --bg:#1F2022; --card:#2A2C2F; --ink:#ECEAE4; --muted:#A3A6AB; --oak:#D9A469; --line:#3A3D41; } }
+:root[data-theme="dark"]{ --bg:#1F2022; --card:#2A2C2F; --ink:#ECEAE4; --muted:#A3A6AB; --oak:#D9A469; --line:#3A3D41; }
+html{ scroll-padding-top:env(safe-area-inset-top,0px); }
+*{ box-sizing:inherit; }
+body{ margin:0; background:var(--bg); color:var(--ink); font-family:"Source Sans 3", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:17px; line-height:1.5; }
+header{ max-width:680px; margin:0 auto; padding:40px 20px 16px; }
+h1{ font-family:Fraunces, Georgia, serif; font-weight:600; font-size:clamp(34px,7vw,52px); line-height:1.05; margin:0 0 14px; letter-spacing:-0.01em; }
+header p{ margin:0 0 10px; color:var(--muted); max-width:34em; }
+header p strong{ color:var(--ink); font-weight:600; }
+nav{ max-width:680px; margin:0 auto 8px; padding:0 20px; display:flex; flex-wrap:wrap; gap:8px 14px; font-size:15px; }
+nav a{ color:var(--oak); text-decoration:none; border-bottom:1px solid var(--line); }
+main{ max-width:680px; margin:0 auto; padding:8px 12px 60px; display:grid; gap:22px; }
+.item{ background:var(--card); border-radius:14px; overflow:hidden; border:1px solid var(--line); }
+.grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:4px; background:var(--line); }
+.grid figure{ margin:0; }
+.grid figure:first-child{ grid-column:1 / -1; }
+.grid img{ display:block; width:100%; height:100%; max-width:100%; aspect-ratio:4/3; object-fit:cover; cursor:zoom-in; }
+.grid figure:first-child img{ aspect-ratio:3/2; }
+.nophoto{ aspect-ratio:4/1.6; display:grid; place-items:center; color:var(--muted); background:var(--line); font-family:Fraunces, Georgia, serif; font-size:20px; }
+.body{ padding:18px 20px 22px; }
+h2{ font-family:Fraunces, Georgia, serif; font-weight:600; font-size:26px; margin:0 0 4px; line-height:1.15; }
+.price{ font-family:Fraunces, Georgia, serif; font-size:30px; color:var(--oak); margin:0 0 12px; font-weight:400; }
+.price .sub{ font-family:inherit; font-size:16px; color:var(--muted); margin-left:6px; }
+ul{ margin:0 0 12px; padding-left:20px; }
+li{ margin:3px 0; }
+.note{ margin:0 0 14px; color:var(--muted); font-size:15px; }
+.cta{ display:inline-block; background:var(--oak); color:#fff; text-decoration:none; padding:10px 18px; border-radius:999px; font-weight:600; }
+.ext{ color:var(--oak); }
+.cta:focus-visible, nav a:focus-visible{ outline:3px solid var(--oak); outline-offset:3px; }
+footer{ max-width:680px; margin:0 auto; padding:0 20px 50px; color:var(--muted); font-size:15px; }
+dialog{ border:0; padding:0; background:transparent; max-width:96vw; max-height:96vh; }
+dialog::backdrop{ background:rgba(0,0,0,.88); }
+dialog img{ max-width:96vw; max-height:92vh; display:block; border-radius:6px; }
+dialog button{ position:fixed; background:#fff; color:#000; border:0; border-radius:999px; width:44px; height:44px; font-size:22px; cursor:pointer; }
+dialog .close{ top:calc(12px + env(safe-area-inset-top,0px)); right:14px; }
+dialog .prev, dialog .next{ top:50%; transform:translateY(-50%); }
+dialog .prev{ left:10px; } dialog .next{ right:10px; }
+dialog .count{ position:fixed; bottom:calc(14px + env(safe-area-inset-bottom,0px)); left:0; right:0; text-align:center; color:#fff; font-size:15px; }
+@media (min-width:720px){ .grid{ grid-template-columns:repeat(4,1fr); } }
+
+</style>
+</head>
+<body>
+<header>
+  <h1>Meubles à vendre</h1>
+</header>
+<nav aria-label="Aller à"><a href="#sam">Salle à manger</a><a href="#salon">Salon relax</a><a href="#basse">Table basse</a><a href="#cuisine">Table de cuisine</a><a href="#buffet">Buffet</a><a href="#tv">Meuble TV</a><a href="#conf">Confiturier</a><a href="#robot">Robot tondeuse</a><a href="#frigo">Frigo</a><a href="#biblio">Bibliothèque</a><a href="#bureau">Bureau</a><a href="#fauteuil1">Fauteuil Louis XV</a><a href="#fauteuil2">Fauteuil haut dossier</a><a href="#chaise">Chaise paillée</a><a href="#commode">Commode merisier</a></nav>
+<main>
+
+<article class="item" id="sam">
+  <div class="grid" aria-label="Photos"><figure><img src="img/01-s.jpg" data-full="img/01.jpg" alt="Salle à manger Detroit" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/02-s.jpg" data-full="img/02.jpg" alt="Salle à manger Detroit" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/03-s.jpg" data-full="img/03.jpg" alt="Salle à manger Detroit" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/04-s.jpg" data-full="img/04.jpg" alt="Salle à manger Detroit" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/05-s.jpg" data-full="img/05.jpg" alt="Salle à manger Detroit" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/06-s.jpg" data-full="img/06.jpg" alt="Salle à manger Detroit" loading="lazy" decoding="async" width="480" height="640"></figure></div>
+  <div class="body">
+    <h2>Salle à manger Detroit</h2>
+    <p class="price">1 500 € <span class="sub">le lot complet</span></p>
+    <ul><li>Chêne massif, inserts anthracite, ferrures métal noir</li><li>Buffet 3 tiroirs + 2 portes coulissantes, ± 200 cm</li><li>Vitrine à porte coulissante vitrée, éclairage LED intégré, 1 tiroir</li><li>Table rectangulaire 200 cm, piètement métal noir</li><li>6 chaises chêne, assise tissu gris</li><li>Achetée en 2021 chez Meubles Morren (facture disponible), très peu servie</li><li>Petite trace sur un insert du plateau de table (dernière photo)</li></ul>
+    <p class="note">Vendu séparément possible : buffet 500 €, vitrine 450 €, table + 6 chaises 700 €.</p>
+  </div>
+</article>
+<article class="item" id="salon">
+  <div class="grid" aria-label="Photos"><figure><img src="img/07-s.jpg" data-full="img/07.jpg" alt="Salon relax électrique 3 + 2 + 1" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/08-s.jpg" data-full="img/08.jpg" alt="Salon relax électrique 3 + 2 + 1" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/09-s.jpg" data-full="img/09.jpg" alt="Salon relax électrique 3 + 2 + 1" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/10-s.jpg" data-full="img/10.jpg" alt="Salon relax électrique 3 + 2 + 1" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/11-s.jpg" data-full="img/11.jpg" alt="Salon relax électrique 3 + 2 + 1" loading="lazy" decoding="async" width="640" height="480"></figure></div>
+  <div class="body">
+    <h2>Salon relax électrique 3 + 2 + 1</h2>
+    <p class="price">1 300 € <span class="sub">les trois pièces</span></p>
+    <ul><li>Anthracite, grain cuir</li><li>Canapé 3 places avec 2 relax électriques</li><li>Canapé 2 places avec 2 relax électriques</li><li>Fauteuil relax électrique</li><li>Commandes latérales avec port USB</li><li>Acheté en 2021 chez Meubles Morren (facture disponible), très peu servi</li></ul>
+    
+  </div>
+</article>
+<article class="item" id="basse">
+  <div class="grid" aria-label="Photos"><figure><img src="img/12-s.jpg" data-full="img/12.jpg" alt="Table basse ovale en pierre" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/13-s.jpg" data-full="img/13.jpg" alt="Table basse ovale en pierre" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/14-s.jpg" data-full="img/14.jpg" alt="Table basse ovale en pierre" loading="lazy" decoding="async" width="480" height="640"></figure></div>
+  <div class="body">
+    <h2>Table basse ovale en pierre</h2>
+    <p class="price">300 € </p>
+    <ul><li>Plateau ovale en pierre reconstituée, insert en verre</li><li>Pied sculpté d’une seule pièce</li><li>Achetée en 2021 chez Meubles Morren (facture disponible), état neuf</li><li>Lourde : prévoir deux personnes</li></ul>
+    
+  </div>
+</article>
+<article class="item" id="cuisine">
+  <div class="grid" aria-label="Photos"><figure><img src="img/15-s.jpg" data-full="img/15.jpg" alt="Table de cuisine extensible + 4 chaises" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/16-s.jpg" data-full="img/16.jpg" alt="Table de cuisine extensible + 4 chaises" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/17-s.jpg" data-full="img/17.jpg" alt="Table de cuisine extensible + 4 chaises" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/18-s.jpg" data-full="img/18.jpg" alt="Table de cuisine extensible + 4 chaises" loading="lazy" decoding="async" width="640" height="480"></figure></div>
+  <div class="body">
+    <h2>Table de cuisine extensible + 4 chaises</h2>
+    <p class="price">350 € <span class="sub">table seule 280 €</span></p>
+    <ul><li>Plateau et pieds aspect chêne, style contemporain</li><li>Extensible : allonge intégrée sous le plateau, sur coulisses métal</li><li>± 140 x 90 cm fermée, ± 190 cm ouverte</li><li>4 chaises hautes en simili cuir taupe, pieds métal noir</li><li>Bon état</li></ul>
+  </div>
+</article>
+<article class="item" id="buffet">
+  <div class="grid" aria-label="Photos"><figure><img src="img/19-s.jpg" data-full="img/19.jpg" alt="Buffet chêne massif 2 portes" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/20-s.jpg" data-full="img/20.jpg" alt="Buffet chêne massif 2 portes" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/21-s.jpg" data-full="img/21.jpg" alt="Buffet chêne massif 2 portes" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/22-s.jpg" data-full="img/22.jpg" alt="Buffet chêne massif 2 portes" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/23-s.jpg" data-full="img/23.jpg" alt="Buffet chêne massif 2 portes" loading="lazy" decoding="async" width="480" height="640"></figure></div>
+  <div class="body">
+    <h2>Buffet chêne massif 2 portes</h2>
+    <p class="price">300 € </p>
+    <ul><li>Chêne massif teinte brune, 2 portes + 1 grand tiroir</li><li>Poignées métal</li><li>± 130 x 95 x 48 cm</li><li>Acheté en 2021 chez Meubles Morren (facture disponible), état neuf</li></ul>
+    
+  </div>
+</article>
+<article class="item" id="tv">
+  <div class="grid" aria-label="Photos"><figure><img src="img/24-s.jpg" data-full="img/24.jpg" alt="Meuble TV style loft" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/25-s.jpg" data-full="img/25.jpg" alt="Meuble TV style loft" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/26-s.jpg" data-full="img/26.jpg" alt="Meuble TV style loft" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/27-s.jpg" data-full="img/27.jpg" alt="Meuble TV style loft" loading="lazy" decoding="async" width="480" height="640"></figure></div>
+  <div class="body">
+    <h2>Meuble TV style loft</h2>
+    <p class="price">180 € </p>
+    <ul><li>Façades et plateau en chêne, piètement métal noir</li><li>1 porte à croisillon métal + 1 tiroir</li><li>Intérieur mélaminé blanc avec étagère</li><li>± 90 x 90 x 45 cm</li><li>Acheté en 2021 chez Meubles Morren (facture disponible), état neuf — TV non comprise</li></ul>
+    
+  </div>
+</article>
+<article class="item" id="conf">
+  <div class="grid" aria-label="Photos"><figure><img src="img/28-s.jpg" data-full="img/28.jpg" alt="Confiturier Louis-Philippe" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/29-s.jpg" data-full="img/29.jpg" alt="Confiturier Louis-Philippe" loading="lazy" decoding="async" width="480" height="640"></figure></div>
+  <div class="body">
+    <h2>Confiturier Louis-Philippe</h2>
+    <p class="price">120 € </p>
+    <ul><li>Chêne finition cérusée, 1 porte avec clé</li><li>1 étagère intérieure</li><li>± 80 x 90 x 45 cm</li><li>Acheté en 2021 chez Meubles Morren (facture disponible), état neuf</li></ul>
+    
+  </div>
+</article>
+<article class="item" id="robot">
+  <div class="grid" aria-label="Photos"><figure><img src="img/30-s.jpg" data-full="img/30.jpg" alt="Robot tondeuse Husqvarna Automower 305" loading="lazy" decoding="async" width="640" height="427"></figure><figure><img src="img/31-s.jpg" data-full="img/31.jpg" alt="Robot tondeuse Husqvarna Automower 305" loading="lazy" decoding="async" width="640" height="427"></figure></div>
+  <div class="body">
+    <h2>Robot tondeuse Husqvarna Automower 305</h2>
+    <p class="price">550 € </p>
+    <ul><li>Acheté neuf en décembre 2022 (facture disponible), placé en avril 2023</li><li>Entretenu, fonctionne parfaitement</li><li>Pelouses jusqu’à 600 m², pentes jusqu’à 40 %, programmation par app (Bluetooth)</li><li>Vendu avec station de charge et transformateur, sans câble périphérique</li><li>Démonstration possible sur place</li></ul>
+    <p class="note">Photos constructeur, en attendant les photos du robot lui-même.</p><p class="note"><a class="ext" href="https://www.husqvarna.com/be-fr/robots-tondeuses/automower-305/" target="_blank" rel="noopener">Voir la fiche officielle Husqvarna ↗</a></p>
+  </div>
+</article>
+<article class="item" id="frigo">
+  <div class="grid" aria-label="Photos"><figure><img src="img/49-s.jpg" data-full="img/49.jpg" alt="Réfrigérateur table-top Beko avec congélateur" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/50-s.jpg" data-full="img/50.jpg" alt="Réfrigérateur table-top Beko avec congélateur" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/51-s.jpg" data-full="img/51.jpg" alt="Réfrigérateur table-top Beko avec congélateur" loading="lazy" decoding="async" width="480" height="640"></figure></div>
+  <div class="body">
+    <h2>Réfrigérateur table-top Beko avec congélateur</h2>
+    <p class="price">80 € </p>
+    <ul><li>Blanc, ± 85 cm de haut x 55 cm de large</li><li>Compartiment congélateur 4 étoiles en haut, 2 clayettes en verre, bac à légumes</li><li>3 balconnets dans la porte, porte réversible</li><li>Fonctionne parfaitement, idéal studio, garage ou kot</li><li>Nettoyé avant remise</li></ul>
+    <p class="note">Il était dans le garage : les photos seront refaites une fois nettoyé.</p>
+  </div>
+</article>
+<article class="item" id="biblio">
+  <div class="grid" aria-label="Photos"><figure><img src="img/32-s.jpg" data-full="img/32.jpg" alt="Bibliothèque Louis XV en chêne" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/33-s.jpg" data-full="img/33.jpg" alt="Bibliothèque Louis XV en chêne" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/34-s.jpg" data-full="img/34.jpg" alt="Bibliothèque Louis XV en chêne" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/35-s.jpg" data-full="img/35.jpg" alt="Bibliothèque Louis XV en chêne" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/36-s.jpg" data-full="img/36.jpg" alt="Bibliothèque Louis XV en chêne" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/37-s.jpg" data-full="img/37.jpg" alt="Bibliothèque Louis XV en chêne" loading="lazy" decoding="async" width="480" height="640"></figure></div>
+  <div class="body">
+    <h2>Bibliothèque Louis XV en chêne</h2>
+    <p class="price">Faire une offre </p>
+    <ul><li>Chêne massif, 3 portes vitrées, 3 portes basses à panneaux sculptés</li><li>Coquille sculptée en fronton, poignées laiton</li><li>± 180 x 200 x 45 cm</li><li>Années 90, très bon état</li></ul>
+    
+  </div>
+</article>
+<article class="item" id="bureau">
+  <div class="grid" aria-label="Photos"><figure><img src="img/38-s.jpg" data-full="img/38.jpg" alt="Bureau Louis XV en chêne" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/39-s.jpg" data-full="img/39.jpg" alt="Bureau Louis XV en chêne" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/40-s.jpg" data-full="img/40.jpg" alt="Bureau Louis XV en chêne" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/41-s.jpg" data-full="img/41.jpg" alt="Bureau Louis XV en chêne" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/42-s.jpg" data-full="img/42.jpg" alt="Bureau Louis XV en chêne" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/43-s.jpg" data-full="img/43.jpg" alt="Bureau Louis XV en chêne" loading="lazy" decoding="async" width="640" height="480"></figure></div>
+  <div class="body">
+    <h2>Bureau Louis XV en chêne</h2>
+    <p class="price">Faire une offre </p>
+    <ul><li>Chêne massif, plateau chêne</li><li>1 tiroir central, caisson 4 tiroirs à gauche derrière une porte sculptée, caisson à droite</li><li>Clés présentes</li><li>Années 90, très bon état</li></ul>
+    
+  </div>
+</article>
+<article class="item" id="fauteuil1">
+  <div class="grid" aria-label="Photos"><figure><img src="img/44-s.jpg" data-full="img/44.jpg" alt="Fauteuil Louis XV en chêne" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/45-s.jpg" data-full="img/45.jpg" alt="Fauteuil Louis XV en chêne" loading="lazy" decoding="async" width="480" height="640"></figure></div>
+  <div class="body">
+    <h2>Fauteuil Louis XV en chêne</h2>
+    <p class="price">Faire une offre </p>
+    <ul><li>Chêne, dossier ajouré, coquilles sculptées</li><li>Assise en velours vert</li><li>1 pièce</li></ul>
+    
+  </div>
+</article>
+<article class="item" id="fauteuil2">
+  <div class="grid" aria-label="Photos"><figure><img src="img/46-s.jpg" data-full="img/46.jpg" alt="Fauteuil haut dossier style Louis XIII" loading="lazy" decoding="async" width="480" height="640"></figure></div>
+  <div class="body">
+    <h2>Fauteuil haut dossier style Louis XIII</h2>
+    <p class="price">Faire une offre </p>
+    <ul><li>Chêne, dossier à panneau sculpté, accotoirs tournés</li><li>Avec coussin</li><li>1 pièce</li></ul>
+    
+  </div>
+</article>
+<article class="item" id="chaise">
+  <div class="grid" aria-label="Photos"><figure><img src="img/47-s.jpg" data-full="img/47.jpg" alt="Chaise paillée" loading="lazy" decoding="async" width="532" height="522"></figure></div>
+  <div class="body">
+    <h2>Chaise paillée</h2>
+    <p class="price">Faire une offre </p>
+    <ul><li>Chêne, assise paillée</li><li>1 pièce, celle du bureau</li></ul>
+    
+  </div>
+</article>
+<article class="item" id="commode">
+  <div class="grid" aria-label="Photos"><figure><img src="img/48-s.jpg" data-full="img/48.jpg" alt="Petite commode 3 tiroirs en merisier" loading="lazy" decoding="async" width="480" height="640"></figure></div>
+  <div class="body">
+    <h2>Petite commode 3 tiroirs en merisier</h2>
+    <p class="price">Faire une offre </p>
+    <ul><li>Merisier, filets de marqueterie noirs, pieds gaine</li><li>3 tiroirs avec clés</li><li>± 70 x 80 x 45 cm</li></ul>
+    
+  </div>
+</article>
+</main>
+<footer>Enlèvement à Jandrain (Orp-Jauche), paiement à l’enlèvement. Les photos sont prises dans la maison telle qu’elle est, désolé pour le désordre. — Yannick</footer>
+<dialog id="dlg"><button type="button" class="close" aria-label="Fermer">×</button><button type="button" class="prev" aria-label="Photo précédente">‹</button><button type="button" class="next" aria-label="Photo suivante">›</button><img alt=""><div class="count"></div></dialog>
+<script>
+(function(){
+  var dlg=document.getElementById('dlg'); if(!dlg||!dlg.showModal) return;
+  var img=dlg.querySelector('img'), cnt=dlg.querySelector('.count'); var list=[], idx=0;
+  function show(i){ idx=(i+list.length)%list.length; img.src=list[idx].dataset.full||list[idx].src; cnt.textContent=(idx+1)+' / '+list.length; }
+  document.querySelectorAll('.grid').forEach(function(g){
+    var imgs=Array.prototype.slice.call(g.querySelectorAll('img'));
+    imgs.forEach(function(i,k){ i.addEventListener('click',function(){ list=imgs; show(k); dlg.showModal(); }); });
+  });
+  dlg.querySelector('.close').addEventListener('click',function(){ dlg.close(); });
+  dlg.querySelector('.prev').addEventListener('click',function(e){ e.stopPropagation(); show(idx-1); });
+  dlg.querySelector('.next').addEventListener('click',function(e){ e.stopPropagation(); show(idx+1); });
+  dlg.addEventListener('click',function(e){ if(e.target===dlg) dlg.close(); });
+  dlg.addEventListener('keydown',function(e){ if(e.key==='ArrowRight') show(idx+1); if(e.key==='ArrowLeft') show(idx-1); });
+  var x0=null; dlg.addEventListener('touchstart',function(e){ x0=e.touches[0].clientX; },{passive:true});
+  dlg.addEventListener('touchend',function(e){ if(x0===null) return; var dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>40) show(dx<0?idx+1:idx-1); x0=null; });
+})();
+</script>
+</body>
+</html>
