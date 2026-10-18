@@ -4,6 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Meubles à vendre – maison de Jandrain</title>
+<meta name="theme-color" content="#1F2022">
+<meta name="description" content="Meubles, salon relax, robot tondeuse et électro à vendre, à venir chercher à Jandrain (Orp-Jauche).">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Meubles à vendre – Jandrain">
+<meta property="og:description" content="Salle à manger chêne massif, salon relax, robot tondeuse, meubles anciens… à venir chercher à Jandrain (Orp-Jauche).">
+<meta property="og:image" content="https://yauuik.github.io/meubles/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://yauuik.github.io/meubles/">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 <style>
@@ -11,15 +21,21 @@
   box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px); }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --bg:#1F2022; --card:#2A2C2F; --ink:#ECEAE4; --muted:#A3A6AB; --oak:#D9A469; --line:#3A3D41; } }
 :root[data-theme="dark"]{ --bg:#1F2022; --card:#2A2C2F; --ink:#ECEAE4; --muted:#A3A6AB; --oak:#D9A469; --line:#3A3D41; }
-html{ scroll-padding-top:env(safe-area-inset-top,0px); }
+html{ scroll-padding-top:calc(64px + env(safe-area-inset-top,0px)); scroll-behavior:smooth; }
 *{ box-sizing:inherit; }
 body{ margin:0; background:var(--bg); color:var(--ink); font-family:"Source Sans 3", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:17px; line-height:1.5; }
 header{ max-width:680px; margin:0 auto; padding:40px 20px 16px; }
 h1{ font-family:Fraunces, Georgia, serif; font-weight:600; font-size:clamp(34px,7vw,52px); line-height:1.05; margin:0 0 14px; letter-spacing:-0.01em; }
 header p{ margin:0 0 10px; color:var(--muted); max-width:34em; }
 header p strong{ color:var(--ink); font-weight:600; }
-nav{ max-width:680px; margin:0 auto 8px; padding:0 20px; display:flex; flex-wrap:wrap; gap:8px 14px; font-size:15px; }
-nav a{ color:var(--oak); text-decoration:none; border-bottom:1px solid var(--line); }
+nav{ position:sticky; top:0; z-index:5; background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+nav .row{ max-width:680px; margin:0 auto; padding:8px 16px; display:flex; gap:8px; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; scroll-snap-type:x proximity; }
+nav .row::-webkit-scrollbar{ display:none; }
+nav a{ flex:0 0 auto; scroll-snap-align:start; color:var(--ink); text-decoration:none; font-size:15px; line-height:28px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; background:var(--card); white-space:nowrap; }
+nav a:active{ background:var(--line); }
+.top{ position:fixed; right:16px; bottom:calc(16px + env(safe-area-inset-bottom,0px)); z-index:4; width:44px; height:44px; border-radius:999px; border:1px solid var(--line); background:var(--card); color:var(--ink); font-size:20px; cursor:pointer; opacity:0; pointer-events:none; transition:opacity .2s; }
+.top.show{ opacity:1; pointer-events:auto; }
+.top:focus-visible{ outline:3px solid var(--oak); outline-offset:3px; }
 main{ max-width:680px; margin:0 auto; padding:8px 12px 60px; display:grid; gap:22px; }
 .item{ background:var(--card); border-radius:14px; overflow:hidden; border:1px solid var(--line); }
 .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:4px; background:var(--line); }
@@ -27,6 +43,8 @@ main{ max-width:680px; margin:0 auto; padding:8px 12px 60px; display:grid; gap:2
 .grid figure:first-child{ grid-column:1 / -1; }
 .grid img{ display:block; width:100%; height:100%; max-width:100%; aspect-ratio:4/3; object-fit:cover; cursor:zoom-in; }
 .grid figure:first-child img{ aspect-ratio:3/2; }
+.grid figure.portrait:first-child img{ aspect-ratio:4/5; }
+@media (min-width:720px){ .grid figure.portrait:first-child img{ aspect-ratio:1/1; } }
 .nophoto{ aspect-ratio:4/1.6; display:grid; place-items:center; color:var(--muted); background:var(--line); font-family:Fraunces, Georgia, serif; font-size:20px; }
 .body{ padding:18px 20px 22px; }
 h2{ font-family:Fraunces, Georgia, serif; font-weight:600; font-size:26px; margin:0 0 4px; line-height:1.15; }
@@ -48,6 +66,7 @@ dialog .prev, dialog .next{ top:50%; transform:translateY(-50%); }
 dialog .prev{ left:10px; } dialog .next{ right:10px; }
 dialog .count{ position:fixed; bottom:calc(14px + env(safe-area-inset-bottom,0px)); left:0; right:0; text-align:center; color:#fff; font-size:15px; }
 @media (min-width:720px){ .grid{ grid-template-columns:repeat(4,1fr); } }
+@media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } .top{ transition:none; } }
 
 </style>
 </head>
@@ -55,11 +74,11 @@ dialog .count{ position:fixed; bottom:calc(14px + env(safe-area-inset-bottom,0px
 <header>
   <h1>Meubles à vendre</h1>
 </header>
-<nav aria-label="Aller à"><a href="#sam">Salle à manger</a><a href="#salon">Salon relax</a><a href="#basse">Table basse</a><a href="#cuisine">Table de cuisine</a><a href="#buffet">Buffet</a><a href="#tv">Meuble TV</a><a href="#conf">Confiturier</a><a href="#robot">Robot tondeuse</a><a href="#frigo">Frigo</a><a href="#biblio">Bibliothèque</a><a href="#bureau">Bureau</a><a href="#fauteuil1">Fauteuil Louis XV</a><a href="#fauteuil2">Fauteuil haut dossier</a><a href="#chaise">Chaise paillée</a><a href="#commode">Commode merisier</a></nav>
+<nav aria-label="Aller à"><div class="row"><a href="#sam">Salle à manger</a><a href="#salon">Salon relax</a><a href="#basse">Table basse</a><a href="#cuisine">Table de cuisine</a><a href="#buffet">Buffet</a><a href="#tv">Meuble TV</a><a href="#conf">Confiturier</a><a href="#robot">Robot tondeuse</a><a href="#frigo">Frigo</a><a href="#biblio">Bibliothèque</a><a href="#bureau">Bureau</a><a href="#fauteuil1">Fauteuil Louis XV</a><a href="#fauteuil2">Fauteuil haut dossier</a><a href="#chaise">Chaise paillée</a><a href="#commode">Commode merisier</a></div></nav>
 <main>
 
 <article class="item" id="sam">
-  <div class="grid" aria-label="Photos"><figure><img src="img/01-s.jpg" data-full="img/01.jpg" alt="Salle à manger Detroit" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/02-s.jpg" data-full="img/02.jpg" alt="Salle à manger Detroit" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/03-s.jpg" data-full="img/03.jpg" alt="Salle à manger Detroit" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/04-s.jpg" data-full="img/04.jpg" alt="Salle à manger Detroit" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/05-s.jpg" data-full="img/05.jpg" alt="Salle à manger Detroit" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/06-s.jpg" data-full="img/06.jpg" alt="Salle à manger Detroit" loading="lazy" decoding="async" width="480" height="640"></figure></div>
+  <div class="grid" aria-label="Photos"><figure class="portrait"><img src="img/01-s.jpg" srcset="img/01-s.jpg 480w, img/01-m.jpg 900w, img/01.jpg 1200w" sizes="(min-width:720px) 656px, 94vw" data-full="img/01.jpg" alt="Salle à manger Detroit" loading="eager" fetchpriority="high" decoding="async" width="480" height="640"></figure><figure><img src="img/02-s.jpg" data-full="img/02.jpg" alt="Salle à manger Detroit" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/03-s.jpg" data-full="img/03.jpg" alt="Salle à manger Detroit" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/04-s.jpg" data-full="img/04.jpg" alt="Salle à manger Detroit" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/05-s.jpg" data-full="img/05.jpg" alt="Salle à manger Detroit" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/06-s.jpg" data-full="img/06.jpg" alt="Salle à manger Detroit" loading="lazy" decoding="async" width="480" height="640"></figure></div>
   <div class="body">
     <h2>Salle à manger Detroit</h2>
     <p class="price">1 500 € <span class="sub">le lot complet</span></p>
@@ -68,7 +87,7 @@ dialog .count{ position:fixed; bottom:calc(14px + env(safe-area-inset-bottom,0px
   </div>
 </article>
 <article class="item" id="salon">
-  <div class="grid" aria-label="Photos"><figure><img src="img/07-s.jpg" data-full="img/07.jpg" alt="Salon relax électrique 3 + 2 + 1" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/08-s.jpg" data-full="img/08.jpg" alt="Salon relax électrique 3 + 2 + 1" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/09-s.jpg" data-full="img/09.jpg" alt="Salon relax électrique 3 + 2 + 1" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/10-s.jpg" data-full="img/10.jpg" alt="Salon relax électrique 3 + 2 + 1" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/11-s.jpg" data-full="img/11.jpg" alt="Salon relax électrique 3 + 2 + 1" loading="lazy" decoding="async" width="640" height="480"></figure></div>
+  <div class="grid" aria-label="Photos"><figure><img src="img/07-s.jpg" srcset="img/07-s.jpg 640w, img/07-m.jpg 1200w, img/07.jpg 1600w" sizes="(min-width:720px) 656px, 94vw" data-full="img/07.jpg" alt="Salon relax électrique 3 + 2 + 1" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/08-s.jpg" data-full="img/08.jpg" alt="Salon relax électrique 3 + 2 + 1" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/09-s.jpg" data-full="img/09.jpg" alt="Salon relax électrique 3 + 2 + 1" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/10-s.jpg" data-full="img/10.jpg" alt="Salon relax électrique 3 + 2 + 1" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/11-s.jpg" data-full="img/11.jpg" alt="Salon relax électrique 3 + 2 + 1" loading="lazy" decoding="async" width="640" height="480"></figure></div>
   <div class="body">
     <h2>Salon relax électrique 3 + 2 + 1</h2>
     <p class="price">1 300 € <span class="sub">les trois pièces</span></p>
@@ -77,7 +96,7 @@ dialog .count{ position:fixed; bottom:calc(14px + env(safe-area-inset-bottom,0px
   </div>
 </article>
 <article class="item" id="basse">
-  <div class="grid" aria-label="Photos"><figure><img src="img/12-s.jpg" data-full="img/12.jpg" alt="Table basse ovale en pierre" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/13-s.jpg" data-full="img/13.jpg" alt="Table basse ovale en pierre" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/14-s.jpg" data-full="img/14.jpg" alt="Table basse ovale en pierre" loading="lazy" decoding="async" width="480" height="640"></figure></div>
+  <div class="grid" aria-label="Photos"><figure><img src="img/12-s.jpg" srcset="img/12-s.jpg 640w, img/12-m.jpg 1024w, img/12.jpg 1024w" sizes="(min-width:720px) 656px, 94vw" data-full="img/12.jpg" alt="Table basse ovale en pierre" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/13-s.jpg" data-full="img/13.jpg" alt="Table basse ovale en pierre" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/14-s.jpg" data-full="img/14.jpg" alt="Table basse ovale en pierre" loading="lazy" decoding="async" width="480" height="640"></figure></div>
   <div class="body">
     <h2>Table basse ovale en pierre</h2>
     <p class="price">300 € </p>
@@ -86,7 +105,7 @@ dialog .count{ position:fixed; bottom:calc(14px + env(safe-area-inset-bottom,0px
   </div>
 </article>
 <article class="item" id="cuisine">
-  <div class="grid" aria-label="Photos"><figure><img src="img/15-s.jpg" data-full="img/15.jpg" alt="Table de cuisine extensible + 4 chaises" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/16-s.jpg" data-full="img/16.jpg" alt="Table de cuisine extensible + 4 chaises" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/17-s.jpg" data-full="img/17.jpg" alt="Table de cuisine extensible + 4 chaises" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/18-s.jpg" data-full="img/18.jpg" alt="Table de cuisine extensible + 4 chaises" loading="lazy" decoding="async" width="640" height="480"></figure></div>
+  <div class="grid" aria-label="Photos"><figure><img src="img/15-s.jpg" srcset="img/15-s.jpg 640w, img/15-m.jpg 1200w, img/15.jpg 1600w" sizes="(min-width:720px) 656px, 94vw" data-full="img/15.jpg" alt="Table de cuisine extensible + 4 chaises" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/16-s.jpg" data-full="img/16.jpg" alt="Table de cuisine extensible + 4 chaises" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/17-s.jpg" data-full="img/17.jpg" alt="Table de cuisine extensible + 4 chaises" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/18-s.jpg" data-full="img/18.jpg" alt="Table de cuisine extensible + 4 chaises" loading="lazy" decoding="async" width="640" height="480"></figure></div>
   <div class="body">
     <h2>Table de cuisine extensible + 4 chaises</h2>
     <p class="price">350 € <span class="sub">table seule 280 €</span></p>
@@ -94,7 +113,7 @@ dialog .count{ position:fixed; bottom:calc(14px + env(safe-area-inset-bottom,0px
   </div>
 </article>
 <article class="item" id="buffet">
-  <div class="grid" aria-label="Photos"><figure><img src="img/19-s.jpg" data-full="img/19.jpg" alt="Buffet chêne massif 2 portes" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/20-s.jpg" data-full="img/20.jpg" alt="Buffet chêne massif 2 portes" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/21-s.jpg" data-full="img/21.jpg" alt="Buffet chêne massif 2 portes" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/22-s.jpg" data-full="img/22.jpg" alt="Buffet chêne massif 2 portes" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/23-s.jpg" data-full="img/23.jpg" alt="Buffet chêne massif 2 portes" loading="lazy" decoding="async" width="480" height="640"></figure></div>
+  <div class="grid" aria-label="Photos"><figure><img src="img/19-s.jpg" srcset="img/19-s.jpg 640w, img/19-m.jpg 1200w, img/19.jpg 1600w" sizes="(min-width:720px) 656px, 94vw" data-full="img/19.jpg" alt="Buffet chêne massif 2 portes" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/20-s.jpg" data-full="img/20.jpg" alt="Buffet chêne massif 2 portes" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/21-s.jpg" data-full="img/21.jpg" alt="Buffet chêne massif 2 portes" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/22-s.jpg" data-full="img/22.jpg" alt="Buffet chêne massif 2 portes" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/23-s.jpg" data-full="img/23.jpg" alt="Buffet chêne massif 2 portes" loading="lazy" decoding="async" width="480" height="640"></figure></div>
   <div class="body">
     <h2>Buffet chêne massif 2 portes</h2>
     <p class="price">300 € </p>
@@ -103,7 +122,7 @@ dialog .count{ position:fixed; bottom:calc(14px + env(safe-area-inset-bottom,0px
   </div>
 </article>
 <article class="item" id="tv">
-  <div class="grid" aria-label="Photos"><figure><img src="img/24-s.jpg" data-full="img/24.jpg" alt="Meuble TV style loft" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/25-s.jpg" data-full="img/25.jpg" alt="Meuble TV style loft" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/26-s.jpg" data-full="img/26.jpg" alt="Meuble TV style loft" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/27-s.jpg" data-full="img/27.jpg" alt="Meuble TV style loft" loading="lazy" decoding="async" width="480" height="640"></figure></div>
+  <div class="grid" aria-label="Photos"><figure class="portrait"><img src="img/24-s.jpg" srcset="img/24-s.jpg 480w, img/24-m.jpg 900w, img/24.jpg 1200w" sizes="(min-width:720px) 656px, 94vw" data-full="img/24.jpg" alt="Meuble TV style loft" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/25-s.jpg" data-full="img/25.jpg" alt="Meuble TV style loft" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/26-s.jpg" data-full="img/26.jpg" alt="Meuble TV style loft" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/27-s.jpg" data-full="img/27.jpg" alt="Meuble TV style loft" loading="lazy" decoding="async" width="480" height="640"></figure></div>
   <div class="body">
     <h2>Meuble TV style loft</h2>
     <p class="price">180 € </p>
@@ -112,7 +131,7 @@ dialog .count{ position:fixed; bottom:calc(14px + env(safe-area-inset-bottom,0px
   </div>
 </article>
 <article class="item" id="conf">
-  <div class="grid" aria-label="Photos"><figure><img src="img/28-s.jpg" data-full="img/28.jpg" alt="Confiturier Louis-Philippe" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/29-s.jpg" data-full="img/29.jpg" alt="Confiturier Louis-Philippe" loading="lazy" decoding="async" width="480" height="640"></figure></div>
+  <div class="grid" aria-label="Photos"><figure class="portrait"><img src="img/28-s.jpg" srcset="img/28-s.jpg 480w, img/28-m.jpg 900w, img/28.jpg 1200w" sizes="(min-width:720px) 656px, 94vw" data-full="img/28.jpg" alt="Confiturier Louis-Philippe" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/29-s.jpg" data-full="img/29.jpg" alt="Confiturier Louis-Philippe" loading="lazy" decoding="async" width="480" height="640"></figure></div>
   <div class="body">
     <h2>Confiturier Louis-Philippe</h2>
     <p class="price">120 € </p>
@@ -121,7 +140,7 @@ dialog .count{ position:fixed; bottom:calc(14px + env(safe-area-inset-bottom,0px
   </div>
 </article>
 <article class="item" id="robot">
-  <div class="grid" aria-label="Photos"><figure><img src="img/30-s.jpg" data-full="img/30.jpg" alt="Robot tondeuse Husqvarna Automower 305" loading="lazy" decoding="async" width="640" height="427"></figure><figure><img src="img/31-s.jpg" data-full="img/31.jpg" alt="Robot tondeuse Husqvarna Automower 305" loading="lazy" decoding="async" width="640" height="427"></figure></div>
+  <div class="grid" aria-label="Photos"><figure><img src="img/30-s.jpg" srcset="img/30-s.jpg 640w, img/30-m.jpg 1200w, img/30.jpg 1245w" sizes="(min-width:720px) 656px, 94vw" data-full="img/30.jpg" alt="Robot tondeuse Husqvarna Automower 305" loading="lazy" decoding="async" width="640" height="427"></figure><figure><img src="img/31-s.jpg" data-full="img/31.jpg" alt="Robot tondeuse Husqvarna Automower 305" loading="lazy" decoding="async" width="640" height="427"></figure></div>
   <div class="body">
     <h2>Robot tondeuse Husqvarna Automower 305</h2>
     <p class="price">550 € </p>
@@ -130,7 +149,7 @@ dialog .count{ position:fixed; bottom:calc(14px + env(safe-area-inset-bottom,0px
   </div>
 </article>
 <article class="item" id="frigo">
-  <div class="grid" aria-label="Photos"><figure><img src="img/49-s.jpg" data-full="img/49.jpg" alt="Réfrigérateur table-top Beko avec congélateur" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/50-s.jpg" data-full="img/50.jpg" alt="Réfrigérateur table-top Beko avec congélateur" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/51-s.jpg" data-full="img/51.jpg" alt="Réfrigérateur table-top Beko avec congélateur" loading="lazy" decoding="async" width="480" height="640"></figure></div>
+  <div class="grid" aria-label="Photos"><figure class="portrait"><img src="img/49-s.jpg" srcset="img/49-s.jpg 480w, img/49-m.jpg 768w, img/49.jpg 768w" sizes="(min-width:720px) 656px, 94vw" data-full="img/49.jpg" alt="Réfrigérateur table-top Beko avec congélateur" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/50-s.jpg" data-full="img/50.jpg" alt="Réfrigérateur table-top Beko avec congélateur" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/51-s.jpg" data-full="img/51.jpg" alt="Réfrigérateur table-top Beko avec congélateur" loading="lazy" decoding="async" width="480" height="640"></figure></div>
   <div class="body">
     <h2>Réfrigérateur table-top Beko avec congélateur</h2>
     <p class="price">80 € </p>
@@ -139,7 +158,7 @@ dialog .count{ position:fixed; bottom:calc(14px + env(safe-area-inset-bottom,0px
   </div>
 </article>
 <article class="item" id="biblio">
-  <div class="grid" aria-label="Photos"><figure><img src="img/32-s.jpg" data-full="img/32.jpg" alt="Bibliothèque Louis XV en chêne" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/33-s.jpg" data-full="img/33.jpg" alt="Bibliothèque Louis XV en chêne" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/34-s.jpg" data-full="img/34.jpg" alt="Bibliothèque Louis XV en chêne" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/35-s.jpg" data-full="img/35.jpg" alt="Bibliothèque Louis XV en chêne" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/36-s.jpg" data-full="img/36.jpg" alt="Bibliothèque Louis XV en chêne" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/37-s.jpg" data-full="img/37.jpg" alt="Bibliothèque Louis XV en chêne" loading="lazy" decoding="async" width="480" height="640"></figure></div>
+  <div class="grid" aria-label="Photos"><figure><img src="img/32-s.jpg" srcset="img/32-s.jpg 640w, img/32-m.jpg 1024w, img/32.jpg 1024w" sizes="(min-width:720px) 656px, 94vw" data-full="img/32.jpg" alt="Bibliothèque Louis XV en chêne" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/33-s.jpg" data-full="img/33.jpg" alt="Bibliothèque Louis XV en chêne" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/34-s.jpg" data-full="img/34.jpg" alt="Bibliothèque Louis XV en chêne" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/35-s.jpg" data-full="img/35.jpg" alt="Bibliothèque Louis XV en chêne" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/36-s.jpg" data-full="img/36.jpg" alt="Bibliothèque Louis XV en chêne" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/37-s.jpg" data-full="img/37.jpg" alt="Bibliothèque Louis XV en chêne" loading="lazy" decoding="async" width="480" height="640"></figure></div>
   <div class="body">
     <h2>Bibliothèque Louis XV en chêne</h2>
     <p class="price">Faire une offre </p>
@@ -148,7 +167,7 @@ dialog .count{ position:fixed; bottom:calc(14px + env(safe-area-inset-bottom,0px
   </div>
 </article>
 <article class="item" id="bureau">
-  <div class="grid" aria-label="Photos"><figure><img src="img/38-s.jpg" data-full="img/38.jpg" alt="Bureau Louis XV en chêne" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/39-s.jpg" data-full="img/39.jpg" alt="Bureau Louis XV en chêne" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/40-s.jpg" data-full="img/40.jpg" alt="Bureau Louis XV en chêne" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/41-s.jpg" data-full="img/41.jpg" alt="Bureau Louis XV en chêne" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/42-s.jpg" data-full="img/42.jpg" alt="Bureau Louis XV en chêne" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/43-s.jpg" data-full="img/43.jpg" alt="Bureau Louis XV en chêne" loading="lazy" decoding="async" width="640" height="480"></figure></div>
+  <div class="grid" aria-label="Photos"><figure><img src="img/38-s.jpg" srcset="img/38-s.jpg 640w, img/38-m.jpg 1024w, img/38.jpg 1024w" sizes="(min-width:720px) 656px, 94vw" data-full="img/38.jpg" alt="Bureau Louis XV en chêne" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/39-s.jpg" data-full="img/39.jpg" alt="Bureau Louis XV en chêne" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/40-s.jpg" data-full="img/40.jpg" alt="Bureau Louis XV en chêne" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/41-s.jpg" data-full="img/41.jpg" alt="Bureau Louis XV en chêne" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/42-s.jpg" data-full="img/42.jpg" alt="Bureau Louis XV en chêne" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/43-s.jpg" data-full="img/43.jpg" alt="Bureau Louis XV en chêne" loading="lazy" decoding="async" width="640" height="480"></figure></div>
   <div class="body">
     <h2>Bureau Louis XV en chêne</h2>
     <p class="price">Faire une offre </p>
@@ -157,7 +176,7 @@ dialog .count{ position:fixed; bottom:calc(14px + env(safe-area-inset-bottom,0px
   </div>
 </article>
 <article class="item" id="fauteuil1">
-  <div class="grid" aria-label="Photos"><figure><img src="img/44-s.jpg" data-full="img/44.jpg" alt="Fauteuil Louis XV en chêne" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/45-s.jpg" data-full="img/45.jpg" alt="Fauteuil Louis XV en chêne" loading="lazy" decoding="async" width="480" height="640"></figure></div>
+  <div class="grid" aria-label="Photos"><figure class="portrait"><img src="img/44-s.jpg" srcset="img/44-s.jpg 480w, img/44-m.jpg 768w, img/44.jpg 768w" sizes="(min-width:720px) 656px, 94vw" data-full="img/44.jpg" alt="Fauteuil Louis XV en chêne" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/45-s.jpg" data-full="img/45.jpg" alt="Fauteuil Louis XV en chêne" loading="lazy" decoding="async" width="480" height="640"></figure></div>
   <div class="body">
     <h2>Fauteuil Louis XV en chêne</h2>
     <p class="price">Faire une offre </p>
@@ -166,7 +185,7 @@ dialog .count{ position:fixed; bottom:calc(14px + env(safe-area-inset-bottom,0px
   </div>
 </article>
 <article class="item" id="fauteuil2">
-  <div class="grid" aria-label="Photos"><figure><img src="img/46-s.jpg" data-full="img/46.jpg" alt="Fauteuil haut dossier style Louis XIII" loading="lazy" decoding="async" width="480" height="640"></figure></div>
+  <div class="grid" aria-label="Photos"><figure class="portrait"><img src="img/46-s.jpg" srcset="img/46-s.jpg 480w, img/46-m.jpg 768w, img/46.jpg 768w" sizes="(min-width:720px) 656px, 94vw" data-full="img/46.jpg" alt="Fauteuil haut dossier style Louis XIII" loading="lazy" decoding="async" width="480" height="640"></figure></div>
   <div class="body">
     <h2>Fauteuil haut dossier style Louis XIII</h2>
     <p class="price">Faire une offre </p>
@@ -175,7 +194,7 @@ dialog .count{ position:fixed; bottom:calc(14px + env(safe-area-inset-bottom,0px
   </div>
 </article>
 <article class="item" id="chaise">
-  <div class="grid" aria-label="Photos"><figure><img src="img/47-s.jpg" data-full="img/47.jpg" alt="Chaise paillée" loading="lazy" decoding="async" width="532" height="522"></figure></div>
+  <div class="grid" aria-label="Photos"><figure><img src="img/47-s.jpg" srcset="img/47-s.jpg 532w, img/47-m.jpg 532w, img/47.jpg 532w" sizes="(min-width:720px) 656px, 94vw" data-full="img/47.jpg" alt="Chaise paillée" loading="lazy" decoding="async" width="532" height="522"></figure></div>
   <div class="body">
     <h2>Chaise paillée</h2>
     <p class="price">Faire une offre </p>
@@ -184,7 +203,7 @@ dialog .count{ position:fixed; bottom:calc(14px + env(safe-area-inset-bottom,0px
   </div>
 </article>
 <article class="item" id="commode">
-  <div class="grid" aria-label="Photos"><figure><img src="img/48-s.jpg" data-full="img/48.jpg" alt="Petite commode 3 tiroirs en merisier" loading="lazy" decoding="async" width="480" height="640"></figure></div>
+  <div class="grid" aria-label="Photos"><figure class="portrait"><img src="img/48-s.jpg" srcset="img/48-s.jpg 480w, img/48-m.jpg 768w, img/48.jpg 768w" sizes="(min-width:720px) 656px, 94vw" data-full="img/48.jpg" alt="Petite commode 3 tiroirs en merisier" loading="lazy" decoding="async" width="480" height="640"></figure></div>
   <div class="body">
     <h2>Petite commode 3 tiroirs en merisier</h2>
     <p class="price">Faire une offre </p>
@@ -194,9 +213,12 @@ dialog .count{ position:fixed; bottom:calc(14px + env(safe-area-inset-bottom,0px
 </article>
 </main>
 <footer>Enlèvement à Jandrain (Orp-Jauche), paiement à l’enlèvement. Les photos sont prises dans la maison telle qu’elle est, désolé pour le désordre. — Yannick</footer>
+<button type="button" class="top" aria-label="Retour en haut">↑</button>
 <dialog id="dlg"><button type="button" class="close" aria-label="Fermer">×</button><button type="button" class="prev" aria-label="Photo précédente">‹</button><button type="button" class="next" aria-label="Photo suivante">›</button><img alt=""><div class="count"></div></dialog>
 <script>
 (function(){
+  var top=document.querySelector('.top');
+  if(top){ var tick=false; addEventListener('scroll',function(){ if(tick) return; tick=true; requestAnimationFrame(function(){ top.classList.toggle('show', scrollY>900); tick=false; }); },{passive:true}); top.addEventListener('click',function(){ scrollTo({top:0,behavior:'smooth'}); }); }
   var dlg=document.getElementById('dlg'); if(!dlg||!dlg.showModal) return;
   var img=dlg.querySelector('img'), cnt=dlg.querySelector('.count'); var list=[], idx=0;
   function show(i){ idx=(i+list.length)%list.length; img.src=list[idx].dataset.full||list[idx].src; cnt.textContent=(idx+1)+' / '+list.length; }
