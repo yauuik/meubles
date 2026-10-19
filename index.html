@@ -67,6 +67,9 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
 #dlg .count{ position:fixed; bottom:calc(14px + env(safe-area-inset-bottom,0px)); left:0; right:0; text-align:center; color:#fff; font-size:15px; }
 @media (min-width:720px){ .grid{ grid-template-columns:repeat(4,1fr); } }
 
+.ask{ margin-top:6px; font:inherit; font-size:15px; font-weight:600; padding:10px 18px; border-radius:999px; border:1px solid var(--oak); background:transparent; color:var(--oak); cursor:pointer; }
+.ask:active{ background:var(--oak); color:#fff; }
+.ask:focus-visible{ outline:3px solid var(--oak); outline-offset:3px; }
 .contact{ position:fixed; left:16px; bottom:calc(16px + env(safe-area-inset-bottom,0px)); z-index:4; height:44px; padding:0 18px; border-radius:999px; border:0; background:var(--oak); color:#fff; font:inherit; font-size:15px; font-weight:600; cursor:pointer; box-shadow:0 6px 20px rgba(0,0,0,.25); }
 .contact:focus-visible{ outline:3px solid var(--ink); outline-offset:3px; }
 #cdlg{ border:0; padding:0; background:transparent; max-width:min(92vw,440px); width:100%; }
@@ -102,6 +105,7 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
     <p class="price">1 500 € <span class="sub">le lot complet</span></p>
     <ul><li>Chêne massif, inserts anthracite, ferrures métal noir</li><li>Buffet 3 tiroirs + 2 portes coulissantes, ± 200 cm</li><li>Vitrine à porte coulissante vitrée, éclairage LED intégré, 1 tiroir</li><li>Table rectangulaire 200 cm, piètement métal noir</li><li>6 chaises chêne, assise tissu gris</li><li>Achetée en 2021 chez Meubles Morren (facture disponible), très peu servie</li><li>Petite trace sur un insert du plateau de table (dernière photo)</li></ul>
     <p class="note">Vendu séparément possible : buffet 500 €, vitrine 450 €, table + 6 chaises 700 €.</p>
+    <button type="button" class="ask" data-item="Salle à manger Detroit">Ça m’intéresse</button>
   </div>
 </article>
 <article class="item" id="salon">
@@ -111,6 +115,7 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
     <p class="price">1 300 € <span class="sub">les trois pièces</span></p>
     <ul><li>Anthracite, grain cuir</li><li>Canapé 3 places avec 2 relax électriques</li><li>Canapé 2 places avec 2 relax électriques</li><li>Fauteuil relax électrique</li><li>Commandes latérales avec port USB</li><li>Acheté en 2021 chez Meubles Morren (facture disponible), très peu servi</li></ul>
     
+    <button type="button" class="ask" data-item="Salon relax électrique 3 + 2 + 1">Ça m’intéresse</button>
   </div>
 </article>
 <article class="item" id="basse">
@@ -120,6 +125,7 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
     <p class="price">300 € </p>
     <ul><li>Plateau ovale en pierre reconstituée, insert en verre</li><li>Pied sculpté d’une seule pièce</li><li>Achetée en 2021 chez Meubles Morren (facture disponible), état neuf</li><li>Lourde : prévoir deux personnes</li></ul>
     
+    <button type="button" class="ask" data-item="Table basse ovale en pierre">Ça m’intéresse</button>
   </div>
 </article>
 <article class="item" id="cuisine">
@@ -128,6 +134,7 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
     <h2>Table de cuisine extensible + 4 chaises</h2>
     <p class="price">350 € <span class="sub">table seule 280 €</span></p>
     <ul><li>Plateau et pieds aspect chêne, style contemporain</li><li>Extensible : allonge intégrée sous le plateau, sur coulisses métal</li><li>± 140 x 90 cm fermée, ± 190 cm ouverte</li><li>4 chaises hautes en simili cuir taupe, pieds métal noir</li><li>Bon état</li></ul>
+    <button type="button" class="ask" data-item="Table de cuisine extensible + 4 chaises">Ça m’intéresse</button>
   </div>
 </article>
 <article class="item" id="buffet">
@@ -137,6 +144,7 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
     <p class="price">300 € </p>
     <ul><li>Chêne massif teinte brune, 2 portes + 1 grand tiroir</li><li>Poignées métal</li><li>± 130 x 95 x 48 cm</li><li>Acheté en 2021 chez Meubles Morren (facture disponible), état neuf</li></ul>
     
+    <button type="button" class="ask" data-item="Buffet chêne massif 2 portes">Ça m’intéresse</button>
   </div>
 </article>
 <article class="item" id="tv">
@@ -146,6 +154,7 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
     <p class="price">180 € </p>
     <ul><li>Façades et plateau en chêne, piètement métal noir</li><li>1 porte à croisillon métal + 1 tiroir</li><li>Intérieur mélaminé blanc avec étagère</li><li>± 90 x 90 x 45 cm</li><li>Acheté en 2021 chez Meubles Morren (facture disponible), état neuf — TV non comprise</li></ul>
     
+    <button type="button" class="ask" data-item="Meuble TV style loft">Ça m’intéresse</button>
   </div>
 </article>
 <article class="item" id="conf">
@@ -155,6 +164,7 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
     <p class="price">120 € </p>
     <ul><li>Chêne finition cérusée, 1 porte avec clé</li><li>1 étagère intérieure</li><li>± 80 x 90 x 45 cm</li><li>Acheté en 2021 chez Meubles Morren (facture disponible), état neuf</li></ul>
     
+    <button type="button" class="ask" data-item="Confiturier Louis-Philippe">Ça m’intéresse</button>
   </div>
 </article>
 <article class="item" id="robot">
@@ -164,6 +174,7 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
     <p class="price">550 € </p>
     <ul><li>Acheté neuf en décembre 2022 (facture disponible), placé en avril 2023</li><li>Entretenu, fonctionne parfaitement</li><li>Pelouses jusqu’à 600 m², pentes jusqu’à 40 %, programmation par app (Bluetooth)</li><li>Vendu avec station de charge et transformateur, sans câble périphérique</li><li>Démonstration possible sur place</li></ul>
     <p class="note">Photos constructeur, en attendant les photos du robot lui-même.</p><p class="note"><a class="ext" href="https://www.husqvarna.com/be-fr/robots-tondeuses/automower-305/" target="_blank" rel="noopener">Voir la fiche officielle Husqvarna ↗</a></p>
+    <button type="button" class="ask" data-item="Robot tondeuse Husqvarna Automower 305">Ça m’intéresse</button>
   </div>
 </article>
 <article class="item" id="frigo">
@@ -173,6 +184,7 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
     <p class="price">80 € </p>
     <ul><li>Blanc, ± 85 cm de haut x 55 cm de large</li><li>Compartiment congélateur 4 étoiles en haut, 2 clayettes en verre, bac à légumes</li><li>3 balconnets dans la porte, porte réversible</li><li>A servi un mois seulement, fonctionne parfaitement</li><li>Idéal studio, garage ou kot</li><li>Nettoyé avant remise</li></ul>
     <p class="note">Il était dans le garage : les photos seront refaites une fois nettoyé.</p>
+    <button type="button" class="ask" data-item="Réfrigérateur table-top Beko avec congélateur">Ça m’intéresse</button>
   </div>
 </article>
 <article class="item" id="biblio">
@@ -182,6 +194,7 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
     <p class="price">Faire une offre </p>
     <ul><li>Chêne massif, 3 portes vitrées, 3 portes basses à panneaux sculptés</li><li>Coquille sculptée en fronton, poignées laiton</li><li>± 180 x 200 x 45 cm</li><li>Années 90, très bon état</li></ul>
     
+    <button type="button" class="ask" data-item="Bibliothèque Louis XV en chêne">Ça m’intéresse</button>
   </div>
 </article>
 <article class="item" id="bureau">
@@ -191,6 +204,7 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
     <p class="price">Faire une offre </p>
     <ul><li>Chêne massif, plateau chêne</li><li>1 tiroir central, caisson 4 tiroirs à gauche derrière une porte sculptée, caisson à droite</li><li>Clés présentes</li><li>Années 90, très bon état</li></ul>
     
+    <button type="button" class="ask" data-item="Bureau Louis XV en chêne">Ça m’intéresse</button>
   </div>
 </article>
 <article class="item" id="fauteuil1">
@@ -200,6 +214,7 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
     <p class="price">Faire une offre </p>
     <ul><li>Chêne, dossier ajouré, coquilles sculptées</li><li>Assise en velours vert</li><li>1 pièce</li></ul>
     
+    <button type="button" class="ask" data-item="Fauteuil Louis XV en chêne">Ça m’intéresse</button>
   </div>
 </article>
 <article class="item" id="fauteuil2">
@@ -209,6 +224,7 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
     <p class="price">Faire une offre </p>
     <ul><li>Chêne, dossier à panneau sculpté, accotoirs tournés</li><li>Avec coussin</li><li>1 pièce</li></ul>
     
+    <button type="button" class="ask" data-item="Fauteuil haut dossier style Louis XIII">Ça m’intéresse</button>
   </div>
 </article>
 <article class="item" id="chaise">
@@ -218,6 +234,7 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
     <p class="price">Faire une offre </p>
     <ul><li>Chêne, assise paillée</li><li>1 pièce, celle du bureau</li></ul>
     
+    <button type="button" class="ask" data-item="Chaise paillée">Ça m’intéresse</button>
   </div>
 </article>
 <article class="item" id="commode">
@@ -227,6 +244,7 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
     <p class="price">Faire une offre </p>
     <ul><li>Merisier, filets de marqueterie noirs, pieds gaine</li><li>3 tiroirs avec clés</li><li>± 70 x 80 x 45 cm</li></ul>
     
+    <button type="button" class="ask" data-item="Petite commode 3 tiroirs en merisier">Ça m’intéresse</button>
   </div>
 </article>
 </main>
@@ -236,7 +254,7 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
   <form method="dialog" novalidate>
     <h3 id="ctitle">Me contacter</h3>
     <label>À propos de
-      <select name="sujet"><option value="Général">Général</option><option value="Salle à manger">Salle à manger</option><option value="Salon relax">Salon relax</option><option value="Table basse">Table basse</option><option value="Table de cuisine">Table de cuisine</option><option value="Buffet">Buffet</option><option value="Meuble TV">Meuble TV</option><option value="Confiturier">Confiturier</option><option value="Robot tondeuse">Robot tondeuse</option><option value="Frigo">Frigo</option><option value="Bibliothèque">Bibliothèque</option><option value="Bureau">Bureau</option><option value="Fauteuil Louis XV">Fauteuil Louis XV</option><option value="Fauteuil haut dossier">Fauteuil haut dossier</option><option value="Chaise paillée">Chaise paillée</option><option value="Commode merisier">Commode merisier</option></select>
+      <select name="sujet"><option value="Général">Général</option><option value="Salle à manger Detroit">Salle à manger Detroit</option><option value="Salon relax électrique 3 + 2 + 1">Salon relax électrique 3 + 2 + 1</option><option value="Table basse ovale en pierre">Table basse ovale en pierre</option><option value="Table de cuisine extensible + 4 chaises">Table de cuisine extensible + 4 chaises</option><option value="Buffet chêne massif 2 portes">Buffet chêne massif 2 portes</option><option value="Meuble TV style loft">Meuble TV style loft</option><option value="Confiturier Louis-Philippe">Confiturier Louis-Philippe</option><option value="Robot tondeuse Husqvarna Automower 305">Robot tondeuse Husqvarna Automower 305</option><option value="Réfrigérateur table-top Beko avec congélateur">Réfrigérateur table-top Beko avec congélateur</option><option value="Bibliothèque Louis XV en chêne">Bibliothèque Louis XV en chêne</option><option value="Bureau Louis XV en chêne">Bureau Louis XV en chêne</option><option value="Fauteuil Louis XV en chêne">Fauteuil Louis XV en chêne</option><option value="Fauteuil haut dossier style Louis XIII">Fauteuil haut dossier style Louis XIII</option><option value="Chaise paillée">Chaise paillée</option><option value="Petite commode 3 tiroirs en merisier">Petite commode 3 tiroirs en merisier</option></select>
     </label>
     <label>Votre nom
       <input name="nom" type="text" autocomplete="name" required>
@@ -285,9 +303,10 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
   var TO = 'yderwa@me.com';
   var dlg=document.getElementById('cdlg'), btn=document.querySelector('.contact'); if(!dlg||!btn) return;
   var form=dlg.querySelector('form'), status=dlg.querySelector('.status'), send=dlg.querySelector('.primary');
-  function open(){ status.textContent=''; if(dlg.showModal) dlg.showModal(); else dlg.setAttribute('open',''); setTimeout(function(){ form.nom.focus(); },50); }
+  function open(item){ status.textContent=''; form.sujet.value = item || 'Général'; if(dlg.showModal) dlg.showModal(); else dlg.setAttribute('open',''); setTimeout(function(){ form.nom.focus(); },50); }
   function close(){ if(dlg.close) dlg.close(); else dlg.removeAttribute('open'); }
-  btn.addEventListener('click', open);
+  btn.addEventListener('click', function(){ open('Général'); });
+  document.querySelectorAll('.ask').forEach(function(b){ b.addEventListener('click', function(){ open(b.dataset.item); }); });
   dlg.querySelector('.cancel').addEventListener('click', close);
   dlg.addEventListener('click', function(e){ if(e.target===dlg) close(); });
   form.addEventListener('submit', function(e){
@@ -299,13 +318,13 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
     if(ENDPOINT && ACCESS_KEY){
       send.disabled=true; status.textContent='Envoi…';
       fetch(ENDPOINT,{ method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
-        body:JSON.stringify({ access_key:ACCESS_KEY, subject:subject, from_name:d.nom, name:d.nom, email:d.email, message:d.message, sujet:d.sujet }) })
+        body:JSON.stringify({ access_key:ACCESS_KEY, subject:subject, from_name:'Meubles Jandrain', name:d.nom, email:d.email, replyto:d.email, meuble:d.sujet, message:d.message, botcheck:'' }) })
       .then(function(r){ return r.json(); })
       .then(function(j){ if(j.success){ status.textContent='Message envoyé, merci. Je vous réponds rapidement.'; form.reset(); setTimeout(close,1800); } else { throw new Error(); } })
       .catch(function(){ status.textContent='Envoi impossible pour le moment. Réessayez ou écrivez à '+TO+'.'; })
       .finally(function(){ send.disabled=false; });
     } else {
-      var body='Bonjour,\n\n'+d.message+'\n\n— '+d.nom+' ('+d.email+')';
+      var body='Meuble : '+d.sujet+'\n\n'+d.message+'\n\n— '+d.nom+' ('+d.email+')';
       location.href='mailto:'+TO+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
       status.textContent='Votre application mail s’ouvre avec le message prérempli.';
     }
