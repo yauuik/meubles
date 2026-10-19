@@ -298,9 +298,8 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
 
 <script>
 (function(){
-  var ENDPOINT = '';            // clé Web3Forms : mettre 'https://api.web3forms.com/submit' ici
-  var ACCESS_KEY = '';          // et la clé reçue par mail ici
-  var TO = 'yderwa@me.com';
+  var ENDPOINT = 'https://api.web3forms.com/submit';
+  var ACCESS_KEY = '113bda83-f860-457d-ade2-d0a9b6a4dfbe';
   var dlg=document.getElementById('cdlg'), btn=document.querySelector('.contact'); if(!dlg||!btn) return;
   var form=dlg.querySelector('form'), status=dlg.querySelector('.status'), send=dlg.querySelector('.primary');
   function open(item){ status.textContent=''; form.sujet.value = item || 'Général'; if(dlg.showModal) dlg.showModal(); else dlg.setAttribute('open',''); setTimeout(function(){ form.nom.focus(); },50); }
@@ -321,12 +320,8 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
         body:JSON.stringify({ access_key:ACCESS_KEY, subject:subject, from_name:'Meubles Jandrain', name:d.nom, email:d.email, replyto:d.email, meuble:d.sujet, message:d.message, botcheck:'' }) })
       .then(function(r){ return r.json(); })
       .then(function(j){ if(j.success){ status.textContent='Message envoyé, merci. Je vous réponds rapidement.'; form.reset(); setTimeout(close,1800); } else { throw new Error(); } })
-      .catch(function(){ status.textContent='Envoi impossible pour le moment. Réessayez ou écrivez à '+TO+'.'; })
+      .catch(function(){ status.textContent='Envoi impossible pour le moment, réessayez dans un instant.'; })
       .finally(function(){ send.disabled=false; });
-    } else {
-      var body='Meuble : '+d.sujet+'\n\n'+d.message+'\n\n— '+d.nom+' ('+d.email+')';
-      location.href='mailto:'+TO+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-      status.textContent='Votre application mail s’ouvre avec le message prérempli.';
     }
   });
 })();
