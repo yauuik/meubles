@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://yauuik.github.io/meubles/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{ --bg:#E6E4DE; --card:#FAF9F6; --ink:#25272A; --muted:#6A6D72; --oak:#8A5A2B; --line:#D2CFC7;
   box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px); }
@@ -23,15 +23,15 @@
 :root[data-theme="dark"]{ --bg:#1F2022; --card:#2A2C2F; --ink:#ECEAE4; --muted:#A3A6AB; --oak:#D9A469; --line:#3A3D41; }
 html{ scroll-padding-top:calc(64px + env(safe-area-inset-top,0px)); scroll-behavior:smooth; }
 *{ box-sizing:inherit; }
-body{ margin:0; background:var(--bg); color:var(--ink); font-family:Manrope, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:17px; line-height:1.5; -webkit-font-smoothing:antialiased; }
+body{ margin:0; background:var(--bg); color:var(--ink); font-family:Inter, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-feature-settings:"cv11","ss01"; font-size:17px; line-height:1.5; -webkit-font-smoothing:antialiased; }
 header{ max-width:680px; margin:0 auto; padding:40px 20px 16px; }
-h1{ font-weight:800; font-size:clamp(32px,7vw,48px); line-height:1.05; margin:0 0 14px; letter-spacing:-0.03em; }
+h1{ font-weight:700; font-size:clamp(30px,7vw,44px); line-height:1.05; margin:0 0 14px; letter-spacing:-0.035em; }
 header p{ margin:0 0 10px; color:var(--muted); max-width:34em; }
 header p strong{ color:var(--ink); font-weight:600; }
 nav{ position:sticky; top:0; z-index:5; background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
 nav .row{ max-width:680px; margin:0 auto; padding:8px 16px; display:flex; gap:8px; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; scroll-snap-type:x proximity; }
 nav .row::-webkit-scrollbar{ display:none; }
-nav a{ flex:0 0 auto; scroll-snap-align:start; color:var(--ink); text-decoration:none; font-size:14px; font-weight:600; line-height:28px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; background:var(--card); white-space:nowrap; }
+nav a{ flex:0 0 auto; scroll-snap-align:start; color:var(--ink); text-decoration:none; font-size:14px; font-weight:500; line-height:28px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; background:var(--card); white-space:nowrap; }
 nav a:active{ background:var(--line); }
 .top{ position:fixed; right:16px; bottom:calc(16px + env(safe-area-inset-bottom,0px)); z-index:4; width:44px; height:44px; border-radius:999px; border:1px solid var(--line); background:var(--card); color:var(--ink); font-size:20px; cursor:pointer; opacity:0; pointer-events:none; transition:opacity .2s; }
 .top.show{ opacity:1; pointer-events:auto; }
@@ -47,8 +47,8 @@ main{ max-width:680px; margin:0 auto; padding:8px 12px 60px; display:grid; gap:2
 @media (min-width:720px){ .grid figure.portrait:first-child img{ aspect-ratio:1/1; } }
 .nophoto{ aspect-ratio:4/1.6; display:grid; place-items:center; color:var(--muted); background:var(--line); font-weight:600; font-size:18px; }
 .body{ padding:18px 20px 22px; }
-h2{ font-weight:700; font-size:23px; margin:0 0 6px; line-height:1.2; letter-spacing:-0.02em; }
-.price{ font-size:28px; color:var(--oak); margin:0 0 12px; font-weight:700; letter-spacing:-0.02em; font-variant-numeric:tabular-nums; }
+h2{ font-weight:600; font-size:22px; margin:0 0 6px; line-height:1.2; letter-spacing:-0.025em; }
+.price{ font-size:27px; color:var(--oak); margin:0 0 12px; font-weight:600; letter-spacing:-0.03em; font-variant-numeric:tabular-nums; }
 .price .sub{ font-size:15px; font-weight:500; color:var(--muted); margin-left:6px; letter-spacing:0; }
 ul{ margin:0 0 12px; padding-left:20px; }
 li{ margin:3px 0; }
