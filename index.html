@@ -252,7 +252,6 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
 </article>
 </main>
 <footer>Enlèvement à Jandrain (Orp-Jauche), paiement à l’enlèvement. Les photos sont prises dans la maison telle qu’elle est, désolé pour le désordre. — Yannick</footer>
-<button type="button" class="contact" aria-haspopup="dialog" aria-controls="cdlg">Contactez-moi</button>
 <dialog id="cdlg" aria-labelledby="ctitle">
   <form method="dialog" novalidate>
     <h3 id="ctitle">Me contacter</h3>
@@ -305,11 +304,10 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
 (function(){
   var ENDPOINT = 'https://api.web3forms.com/submit';
   var ACCESS_KEY = '113bda83-f860-457d-ade2-d0a9b6a4dfbe';
-  var dlg=document.getElementById('cdlg'), btn=document.querySelector('.contact'); if(!dlg||!btn) return;
+  var dlg=document.getElementById('cdlg'); if(!dlg) return;
   var form=dlg.querySelector('form'), status=dlg.querySelector('.status'), send=dlg.querySelector('.primary');
   function open(item){ status.textContent=''; form.sujet.value = item || 'Général'; if(dlg.showModal) dlg.showModal(); else dlg.setAttribute('open',''); setTimeout(function(){ form.nom.focus(); },50); }
   function close(){ if(dlg.close) dlg.close(); else dlg.removeAttribute('open'); }
-  btn.addEventListener('click', function(){ open('Général'); });
   document.querySelectorAll('.ask').forEach(function(b){ b.addEventListener('click', function(){ open(b.dataset.item); }); });
   dlg.querySelector('.cancel').addEventListener('click', close);
   dlg.addEventListener('click', function(e){ if(e.target===dlg) close(); });
