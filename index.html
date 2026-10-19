@@ -29,7 +29,10 @@ h1{ font-weight:700; font-size:clamp(30px,7vw,44px); line-height:1.05; margin:0 
 header p{ margin:0 0 10px; color:var(--muted); max-width:34em; }
 header p strong{ color:var(--ink); font-weight:600; }
 nav{ position:sticky; top:0; z-index:5; background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
-nav .row{ max-width:680px; margin:0 auto; padding:8px 16px; display:flex; gap:8px; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; scroll-snap-type:x proximity; }
+nav .row{ max-width:680px; margin:0 auto; padding:8px 44px 8px 16px; display:flex; gap:8px; overflow-x:auto; overflow-y:hidden; scrollbar-width:none; -webkit-overflow-scrolling:touch; scroll-snap-type:x proximity; }
+nav::after{ content:''; position:absolute; top:0; right:0; bottom:1px; width:56px; background:linear-gradient(to right, transparent, var(--bg) 70%); pointer-events:none; transition:opacity .2s; }
+nav.end::after{ opacity:0; }
+@media (min-width:720px){ nav .row{ flex-wrap:wrap; overflow:visible; padding:10px 16px; } nav::after{ display:none; } html{ scroll-padding-top:calc(118px + env(safe-area-inset-top,0px)); } }
 nav .row::-webkit-scrollbar{ display:none; }
 nav a{ flex:0 0 auto; scroll-snap-align:start; color:var(--ink); text-decoration:none; font-size:14px; font-weight:500; line-height:28px; padding:8px 14px; border:1px solid var(--line); border-radius:999px; background:var(--card); white-space:nowrap; }
 nav a:active{ background:var(--line); }
@@ -277,6 +280,8 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
 <dialog id="dlg"><button type="button" class="close" aria-label="Fermer">×</button><button type="button" class="prev" aria-label="Photo précédente">‹</button><button type="button" class="next" aria-label="Photo suivante">›</button><img alt=""><div class="count"></div></dialog>
 <script>
 (function(){
+  var nav=document.querySelector('nav'), row=nav&&nav.querySelector('.row');
+  if(row){ var upd=function(){ nav.classList.toggle('end', row.scrollLeft+row.clientWidth>=row.scrollWidth-4); }; row.addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); upd(); }
   var top=document.querySelector('.top');
   if(top){ var tick=false; addEventListener('scroll',function(){ if(tick) return; tick=true; requestAnimationFrame(function(){ top.classList.toggle('show', scrollY>900); tick=false; }); },{passive:true}); top.addEventListener('click',function(){ scrollTo({top:0,behavior:'smooth'}); }); }
   var dlg=document.getElementById('dlg'); if(!dlg||!dlg.showModal) return;
