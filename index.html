@@ -70,6 +70,14 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
 #dlg .count{ position:fixed; bottom:calc(14px + env(safe-area-inset-bottom,0px)); left:0; right:0; text-align:center; color:#fff; font-size:15px; }
 @media (min-width:720px){ .grid{ grid-template-columns:repeat(4,1fr); } }
 
+.item.sold{ opacity:.6; filter:saturate(.4); }
+.item.sold .grid{ position:relative; }
+.item.sold .grid::after{ content:'Vendu'; position:absolute; top:12px; left:12px; z-index:1; background:var(--ink); color:var(--bg); font-size:13px; font-weight:700; letter-spacing:.02em; padding:6px 12px; border-radius:999px; }
+.item.sold .price{ text-decoration:line-through; color:var(--muted); }
+.item.sold .price .sub{ display:none; }
+.item.sold .ask{ display:none; }
+.item.sold .grid img{ cursor:default; }
+nav a.sold{ text-decoration:line-through; opacity:.55; }
 .ask{ margin-top:6px; font:inherit; font-size:15px; font-weight:600; padding:10px 18px; border-radius:999px; border:1px solid var(--oak); background:transparent; color:var(--oak); cursor:pointer; }
 .ask:active{ background:var(--oak); color:#fff; }
 .ask:focus-visible{ outline:3px solid var(--oak); outline-offset:3px; }
@@ -98,7 +106,7 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
 <header>
   <h1>Meubles à vendre</h1>
 </header>
-<nav aria-label="Aller à"><div class="row"><a href="#sam">Salle à manger</a><a href="#salon">Salon relax</a><a href="#basse">Table basse</a><a href="#cuisine">Table de cuisine</a><a href="#buffet">Buffet</a><a href="#tv">Meuble TV</a><a href="#conf">Confiturier</a><a href="#robot">Robot tondeuse</a><a href="#frigo">Frigo</a><a href="#bistro">Salon bistro</a><a href="#biblio">Bibliothèque</a><a href="#bureau">Bureau</a><a href="#fauteuil1">Fauteuil Louis XV</a><a href="#fauteuil2">Fauteuil haut dossier</a><a href="#chaise">Chaise paillée</a><a href="#commode">Commode merisier</a></div></nav>
+<nav aria-label="Aller à"><div class="row"><a href="#sam">Salle à manger</a><a href="#salon">Salon relax</a><a href="#basse">Table basse</a><a href="#cuisine" class="sold">Table de cuisine</a><a href="#buffet">Buffet</a><a href="#tv">Meuble TV</a><a href="#conf">Confiturier</a><a href="#robot">Robot tondeuse</a><a href="#frigo">Frigo</a><a href="#bistro">Salon bistro</a><a href="#biblio">Bibliothèque</a><a href="#bureau">Bureau</a><a href="#fauteuil1">Fauteuil Louis XV</a><a href="#fauteuil2">Fauteuil haut dossier</a><a href="#chaise">Chaise paillée</a><a href="#commode">Commode merisier</a></div></nav>
 <main>
 
 <article class="item" id="sam">
@@ -131,11 +139,11 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
     <button type="button" class="ask" data-item="Table basse ovale en pierre">Ça m’intéresse</button>
   </div>
 </article>
-<article class="item" id="cuisine">
+<article class="item sold" id="cuisine">
   <div class="grid" aria-label="Photos"><figure><img src="img/15-s.jpg" srcset="img/15-s.jpg 640w, img/15-m.jpg 1200w, img/15.jpg 1600w" sizes="(min-width:720px) 656px, 94vw" data-full="img/15.jpg" alt="Table de cuisine extensible + 4 chaises" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/16-s.jpg" data-full="img/16.jpg" alt="Table de cuisine extensible + 4 chaises" loading="lazy" decoding="async" width="640" height="480"></figure><figure><img src="img/17-s.jpg" data-full="img/17.jpg" alt="Table de cuisine extensible + 4 chaises" loading="lazy" decoding="async" width="480" height="640"></figure><figure><img src="img/18-s.jpg" data-full="img/18.jpg" alt="Table de cuisine extensible + 4 chaises" loading="lazy" decoding="async" width="640" height="480"></figure></div>
   <div class="body">
     <h2>Table de cuisine extensible + 4 chaises</h2>
-    <p class="price">350 € <span class="sub">table seule 280 €</span></p>
+    <p class="price">350 €</p>
     <ul><li>Plateau et pieds aspect chêne, style contemporain</li><li>Extensible : allonge intégrée sous le plateau, sur coulisses métal</li><li>± 140 x 90 cm fermée, ± 190 cm ouverte</li><li>4 chaises hautes en simili cuir taupe, pieds métal noir</li><li>Bon état</li></ul>
     <button type="button" class="ask" data-item="Table de cuisine extensible + 4 chaises">Ça m’intéresse</button>
   </div>
@@ -265,7 +273,7 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
   <form method="dialog" novalidate>
     <h3 id="ctitle">Me contacter</h3>
     <label>À propos de
-      <select name="sujet"><option value="Général">Général</option><option value="Salle à manger Detroit">Salle à manger Detroit</option><option value="Salon relax électrique 3 + 2 + 1">Salon relax électrique 3 + 2 + 1</option><option value="Table basse ovale en pierre">Table basse ovale en pierre</option><option value="Table de cuisine extensible + 4 chaises">Table de cuisine extensible + 4 chaises</option><option value="Buffet chêne massif 2 portes">Buffet chêne massif 2 portes</option><option value="Meuble TV style loft">Meuble TV style loft</option><option value="Confiturier Louis-Philippe">Confiturier Louis-Philippe</option><option value="Robot tondeuse Husqvarna Automower 305">Robot tondeuse Husqvarna Automower 305</option><option value="Réfrigérateur table-top Beko avec congélateur">Réfrigérateur table-top Beko avec congélateur</option><option value="Salon de jardin bistro mosaïque, table + 2 chaises">Salon de jardin bistro mosaïque, table + 2 chaises</option><option value="Bibliothèque Louis XV en chêne">Bibliothèque Louis XV en chêne</option><option value="Bureau Louis XV en chêne">Bureau Louis XV en chêne</option><option value="Fauteuil Louis XV en chêne">Fauteuil Louis XV en chêne</option><option value="Fauteuil haut dossier style Louis XIII">Fauteuil haut dossier style Louis XIII</option><option value="Chaise paillée">Chaise paillée</option><option value="Petite commode 3 tiroirs en merisier">Petite commode 3 tiroirs en merisier</option></select>
+      <select name="sujet"><option value="Général">Général</option><option value="Salle à manger Detroit">Salle à manger Detroit</option><option value="Salon relax électrique 3 + 2 + 1">Salon relax électrique 3 + 2 + 1</option><option value="Table basse ovale en pierre">Table basse ovale en pierre</option><option value="Buffet chêne massif 2 portes">Buffet chêne massif 2 portes</option><option value="Meuble TV style loft">Meuble TV style loft</option><option value="Confiturier Louis-Philippe">Confiturier Louis-Philippe</option><option value="Robot tondeuse Husqvarna Automower 305">Robot tondeuse Husqvarna Automower 305</option><option value="Réfrigérateur table-top Beko avec congélateur">Réfrigérateur table-top Beko avec congélateur</option><option value="Salon de jardin bistro mosaïque, table + 2 chaises">Salon de jardin bistro mosaïque, table + 2 chaises</option><option value="Bibliothèque Louis XV en chêne">Bibliothèque Louis XV en chêne</option><option value="Bureau Louis XV en chêne">Bureau Louis XV en chêne</option><option value="Fauteuil Louis XV en chêne">Fauteuil Louis XV en chêne</option><option value="Fauteuil haut dossier style Louis XIII">Fauteuil haut dossier style Louis XIII</option><option value="Chaise paillée">Chaise paillée</option><option value="Petite commode 3 tiroirs en merisier">Petite commode 3 tiroirs en merisier</option></select>
     </label>
     <label>Votre nom
       <input name="nom" type="text" autocomplete="name" required>
