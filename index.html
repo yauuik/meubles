@@ -80,6 +80,10 @@ dialog::backdrop{ background:rgba(0,0,0,.88); }
 .item.sold .ask{ display:none; }
 .item.sold .grid img{ cursor:default; }
 nav a.sold{ text-decoration:line-through; opacity:.55; }
+.dl{ display:inline-flex; align-items:center; gap:8px; margin:4px 0 6px; padding:10px 16px; border-radius:999px; background:#C8FF3E; color:#111; text-decoration:none; font-weight:700; font-size:15px; box-shadow:0 0 0 3px rgba(200,255,62,.18), 0 6px 18px rgba(200,255,62,.25); }
+.dl:active{ transform:translateY(1px); }
+.dl:focus-visible{ outline:3px solid #fff; outline-offset:3px; }
+.dl small{ font-weight:500; opacity:.75; }
 .ask{ margin-top:6px; font:inherit; font-size:15px; font-weight:600; padding:10px 18px; border-radius:999px; border:1px solid var(--oak); background:transparent; color:var(--oak); cursor:pointer; }
 .ask:active{ background:var(--oak); color:#fff; }
 .ask:focus-visible{ outline:3px solid var(--oak); outline-offset:3px; }
@@ -107,6 +111,7 @@ nav a.sold{ text-decoration:line-through; opacity:.55; }
 <body>
 <header>
   <h1>Meubles à vendre</h1>
+  <a class="dl" href="annonces-et-photos.zip" download>⬇ Télécharger les annonces + photos <small>(zip, 14 Mo)</small></a>
 </header>
 <nav aria-label="Aller à"><div class="row"><a href="#sam">Salle à manger</a><a href="#salon" class="sold">Salon relax</a><a href="#basse">Table basse</a><a href="#cuisine" class="sold">Table de cuisine</a><a href="#buffet">Buffet</a><a href="#tv">Meuble TV</a><a href="#conf">Confiturier</a><a href="#robot">Robot tondeuse</a><a href="#frigo">Frigo</a><a href="#bistro" class="sold">Salon bistro</a><a href="#tele">TV Samsung</a><a href="#susp1">Suspension noire 1</a><a href="#susp2">Suspension noire 2</a><a href="#plaf">Plafonnier branches</a><a href="#lampe" class="sold">Lampe de table</a><a href="#gigogne">Tables gigognes</a><a href="#nerja">Chaise longue suspendue</a><a href="#biblio">Bibliothèque</a><a href="#bureau">Bureau</a><a href="#fauteuil1">Fauteuil Louis XV</a><a href="#fauteuil2">Fauteuil haut dossier</a><a href="#chaise">Chaise paillée</a><a href="#commode">Commode merisier</a></div></nav>
 <main>
